@@ -1,14 +1,27 @@
-import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.lang.reflect.AnnotatedArrayType;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        final URL url = new URL("");
+        final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        int CONNECTION_TIMEOUT = 100;
+        conn.setRequestMethod("GET");
+        conn.setRequestProperty("Content-Type", "application/json");
+        conn.setConnectTimeout(CONNECTION_TIMEOUT);
+        conn.setReadTimeout(CONNECTION_TIMEOUT);
+        TestExecutor executor = new TestExecutor();
 
-        // String pubkeyfile="C:/Users/Артём/Desktop/squadron-edge-finder/na";
+        String HTTPresponce = executor.get_httpresponce(conn);
+        System.out.println(ANSI_Colors.ANSI_BLUE + HTTPresponce + ANSI_Colors.ANSI_RESET);
+
         String pubkeyfile= "./.ssh//na";
         String passphrase="an1101";
         String host="qa-edge-gw01.c-cars.tech", user="anovichkov";
@@ -19,8 +32,6 @@ public class Main {
         ChannelExec channel = null;
         try {
             session = jSch.getSession(user, host, 22);
-            //  session.setInputStream( new FileInputStream("C:/.ssh/command.txt"));
-            // session.setOutputStream(new FileOutputStream("C:/.ssh/result.txt"));
             session.setPassword(passphrase);
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
