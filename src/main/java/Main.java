@@ -9,12 +9,12 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         // String pubkeyfile="C:/Users/Артём/Desktop/squadron-edge-finder/na";
-        String pubkeyfile= "C://.ssh//na";
+        String pubkeyfile= "./.ssh//na";
         String passphrase="an1101";
         String host="qa-edge-gw01.c-cars.tech", user="anovichkov";
         JSch jSch = new JSch();
         jSch.addIdentity(pubkeyfile, passphrase);
-        jSch.setKnownHosts("C://.ssh//known_hosts");
+        jSch.setKnownHosts("./.ssh//known_hosts");
         Session session = null;
         ChannelExec channel = null;
         try {
@@ -31,6 +31,10 @@ public class Main {
             channel.connect();
             Thread.sleep(1000);
             String responseString = new String(responseStream.toString());
+            if (responseString.isEmpty())
+            {
+                System.out.println(ANSI_Colors.ANSI_YELLOW + "Resonse Is Empty!" + ANSI_Colors.ANSI_RESET);
+            }
             System.out.println(responseString);
             channel.disconnect();
             session.disconnect();
