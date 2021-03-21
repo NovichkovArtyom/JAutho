@@ -25,8 +25,7 @@ public class Main {
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
             channel = (ChannelExec) session.openChannel("exec");
-            ((ChannelExec)channel).setCommand("docker logs -f -t --tail=10000" +
-                    " protocol-adapter-cs | grep '31475be9-1015-42f7-8223-d3213e30dc02'");
+            ((ChannelExec)channel).setCommand("docker logs -f -t --tail=1000 protocol-adapter-cs | grep '31475be9-1015-42f7-8223-d3213e30dc02'");
             OutputStream responseStream = new ByteArrayOutputStream();
             channel.setOutputStream(responseStream);
             channel.connect();
