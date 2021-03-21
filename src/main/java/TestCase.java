@@ -1,7 +1,7 @@
 public class TestCase {
 
     private RequestFeedback feedback;
-    private RequestAlert alert_e;
+    private RequestAlert alert;
     private String Name;
     private String HTTPRequest;
 
