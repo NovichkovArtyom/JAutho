@@ -4,7 +4,6 @@ import com.jcraft.jsch.Session;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
-import java.lang.reflect.AnnotatedArrayType;
 import java.net.HttpURLConnection;
 import java.net.URL;
 

@@ -4,7 +4,7 @@ import java.net.HttpURLConnection;
 
 public class TestExecutor {
     public String get_httpresponce (HttpURLConnection conn){
-try (final BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+    try (final BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
         String inputLine;
         final StringBuilder content = new StringBuilder();
         while ((inputLine = in.readLine()) != null) {
