@@ -1,18 +1,22 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class TestExecutor {
-    public String get_httpresponce (HttpURLConnection conn){
-    try (final BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-        String inputLine;
-        final StringBuilder content = new StringBuilder();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-        }
-        return content.toString();
-    } catch (final Exception ex) {
-        ex.printStackTrace();
-        return "";
-    }}
+/*
+    public String HTTPResponce (TestCase testCase) {
+        final URL url = new URL("https://squadron.c-cars.tech/car/" + "/commands/reset");
+        final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        int CONNECTION_TIMEOUT = 100;
+        conn.setRequestMethod("GET");
+        conn.setRequestProperty("Content-Type", "application/json");
+        conn.setConnectTimeout(CONNECTION_TIMEOUT);
+        conn.setReadTimeout(CONNECTION_TIMEOUT);
+        TestExecutor executor = new TestExecutor();
+
+        String HTTPresponce = executor.get_httpresponce(conn);
+        System.out.println(ANSI_Colors.ANSI_BLUE + HTTPresponce + ANSI_Colors.ANSI_RESET);
+    }*/
+
 }
