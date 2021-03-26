@@ -36,26 +36,29 @@ public class Main {
             httpPost.setHeader("@client_secret=", "$1$ygDUnQzk$hN5S4RxcskLZGlfqjiGgw/");*/
 
             List<NameValuePair> nvps = new ArrayList<>();
-            httpPost.setHeader(HttpHeaders.CONTENT_TYPE, "");
-            nvps.add(new BasicNameValuePair("content-type:", "application/x-www-form-urlencoded"));
-            nvps.add(new BasicNameValuePair("grant_type=", "client_credentials"));
-            nvps.add(new BasicNameValuePair("&scope=", "Qa.Squadron.Proxy.Api"));
-            nvps.add(new BasicNameValuePair("&client_id=", "fms.service.client"));
-            nvps.add(new BasicNameValuePair("password=", "secret"));
-            nvps.add(new BasicNameValuePair("@client_secret=", "$1$ygDUnQzk$hN5S4RxcskLZGlfqjiGgw/"));
-            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+            httpPost.setHeader(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded");
+          //  nvps.add(new BasicNameValuePair(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded"));
+            nvps.add(new BasicNameValuePair("grant_type", "client_credentials"));
+            nvps.add(new BasicNameValuePair("&scope", "Qa.Squadron.Proxy.Api"));
+            nvps.add(new BasicNameValuePair("&client_id", "fms.service.client"));
+            nvps.add(new BasicNameValuePair("password", "secret"));
+            nvps.add(new BasicNameValuePair("@client_secret", "$1$ygDUnQzk$hN5S4RxcskLZGlfqjiGgw/"));
+            StringEntity stringEntity = new StringEntity(nvps.toString());
+            httpPost.setEntity(stringEntity);
+          //  System.out.println((nvps));
 
-        try (CloseableHttpResponse responsewithToken = httpClientToken.execute(httpPost)) {
+       try (CloseableHttpResponse responsewithToken = httpClientToken.execute(httpPost)) {
             System.out.println(ANSI_Colors.ANSI_BLUE + responsewithToken.getCode() + " " + responsewithToken.getReasonPhrase() + ANSI_Colors.ANSI_RESET);
-
+            finalToken= responsewithToken.toString();
+            System.out.println(finalToken);
             HttpEntity entity = responsewithToken.getEntity();
 
             System.out.println( EntityUtils.toString(entity));
             EntityUtils.consume(entity);
-        }}
+        }
+}
 
-
-        try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+       /* try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
             HttpGet httpGet = new HttpGet("https://squadron.c-cars.tech/car/0e021cb1-cbda-4a47-b634-0194e0b8c2da/commands/metadata");
 
             httpGet.setHeader(HttpHeaders.AUTHORIZATION, "Bearer " + finalToken);
@@ -96,7 +99,7 @@ public class Main {
             session.disconnect();
         }
         catch (Exception ex){System.out.println(ex.toString());};
-
+*/
     }
 
 }

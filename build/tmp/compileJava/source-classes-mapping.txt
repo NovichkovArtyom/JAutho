@@ -1,5 +1,5 @@
-TestCase.java
- TestCase
+SSHManager.java
+ SSHManager
 ANSI_Colors.java
  ANSI_Colors
 TestExecutor.java
@@ -14,7 +14,7 @@ RequestFeedback.java
  RequestFeedback
 StreamHandler.java
  StreamHandler
-SSHManager.java
- SSHManager
+TestCase.java
+ TestCase
 Main.java
  Main
