@@ -16,7 +16,7 @@ public class TestExecutor {
         TestExecutor executor = new TestExecutor();
 
         String HTTPresponce = executor.get_httpresponce(conn);
-        System.out.println(ANSI_Colors.ANSI_BLUE + HTTPresponce + ANSI_Colors.ANSI_RESET);
+        System.out.println(ConsoleColors.ANSI_Colors.ANSI_BLUE + HTTPresponce + ConsoleColors.ANSI_Colors.ANSI_RESET);
     }*/
 
 }
