@@ -49,7 +49,6 @@ public class SquadronAuthorizationTokenHolder {
                 JsonObject jsonObject = jsonReader.readObject();
                 this.token = jsonObject.getString("access_token");
                 this.expireTime = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(jsonObject.getInt("expires_in"));
-                System.out.println(responseStream);
                 EntityUtils.consume(response);
 
             } catch (Exception ex) {

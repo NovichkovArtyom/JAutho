@@ -9,7 +9,7 @@ public class URLBuilder implements URLGenerator {
     }
     @Override
     public String generateURL(String host, String vehicleID, String method) {
-        URL = "https://squadron.c-cars.tech/" + host + vehicleID + "/" + method;
+        URL = "https://qa-squadron.c-cars.tech/" + host + vehicleID + "/" + method;
         return this.URL;
     }
     String getURL(){

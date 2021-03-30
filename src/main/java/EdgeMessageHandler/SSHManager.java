@@ -2,21 +2,29 @@ package EdgeMessageHandler;
 
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.JSchException;
+
 import com.jcraft.jsch.Session;
 
+import javax.json.*;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
+import java.io.StringReader;
 
 public class SSHManager {
     private final String publickeyfile = "./.ssh//na";
     private final String passphrase = "an1101";
     private final String host = "qa-edge-gw01.c-cars.tech", user = "anovichkov";
 
-    public void connect () throws JSchException {
+    public void connect ()  {
         JSch jSch = new JSch();
-        jSch.addIdentity(publickeyfile, passphrase);
-        jSch.setKnownHosts("./.ssh//known_hosts");
+        try {
+            jSch.addIdentity(publickeyfile, passphrase);
+            jSch.setKnownHosts("./.ssh//known_hosts");
+        } catch (Exception exception){
+            System.out.println("Что - то с known hosts, с ключом или паролем");
+            System.exit(0);
+        }
+
         Session session = null;
         ChannelExec channel = null;
 
@@ -35,11 +43,13 @@ public class SSHManager {
             if (responseString.isEmpty()) {
                 System.out.println(ConsoleColors.ANSI_Colors.ANSI_YELLOW + "Response Is Empty!" + ConsoleColors.ANSI_Colors.ANSI_RESET);
             }
-            //  System.out.println(responseString);
+            JsonReader jsonReader = Json.createReader();
+            JsonObject jsonObject = jsonReader.readObject();
             channel.disconnect();
             session.disconnect();
         } catch (
                 Exception ex) {
+            System.out.println("Не законнектился. что то SSH Manager-ом");
             System.out.println(ex.toString());
         }
 

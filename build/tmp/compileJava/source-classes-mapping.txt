@@ -2,35 +2,33 @@ HTTPRequests/Interfaces/URLGenerator.java
  HTTPRequests.Interfaces.URLGenerator
 HTTPRequests/Class/Methods.java
  HTTPRequests.Class.Methods
-HTTPRequests/Interfaces/TestStep.java
- HTTPRequests.Interfaces.TestStep
 TestExecutor.java
  TestExecutor
+HTTPRequests/Class/HTTPRequest.java
+ HTTPRequests.Class.HTTPRequest
+HTTPRequests/Class/SquadronAuthorizationTokenHolder.java
+ HTTPRequests.Class.SquadronAuthorizationTokenHolder
 HTTPRequests/Class/StepResult.java
  HTTPRequests.Class.StepResult
-TestCase.java
- TestCase
 EdgeMessageHandler/SSHManager.java
  EdgeMessageHandler.SSHManager
 wTestStep.java
  wTestStep
-HTTPRequests.java
- HTTPRequests
+TestCase.java
+ TestCase
 ConsoleColors/ANSI_Colors.java
  ConsoleColors.ANSI_Colors
-Main.java
- Main
 RequestAlert.java
  RequestAlert
 RequestFeedback.java
  RequestFeedback
 StreamHandler.java
  StreamHandler
+Main.java
+ Main
+HTTPRequests/Interfaces/TestStep.java
+ HTTPRequests.Interfaces.TestStep
 HTTPRequests/Class/URLBuilder.java
  HTTPRequests.Class.URLBuilder
-HTTPRequests/Class/GetMetadataRequest.java
- HTTPRequests.Class.GetMetadataRequest
-HTTPRequests/Class/HTTPRequest.java
- HTTPRequests.Class.HTTPRequest
-HTTPRequests/Class/SquadronAuthorizationTokenHolder.java
- HTTPRequests.Class.SquadronAuthorizationTokenHolder
+HTTPRequests/Class/SquadronRequest.java
+ HTTPRequests.Class.SquadronRequest
