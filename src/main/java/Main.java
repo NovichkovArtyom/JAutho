@@ -12,7 +12,7 @@ public class Main {
         StackTraceElement[] methods = current.getStackTrace();
         Vector<TestStep> CASE = new Vector<TestStep>();
         CASE.add(new SquadronRequest());
-
+        System.out.println("master update");
         HTTPRequest request = new HTTPRequest();
         for (TestStep step : CASE){
             step.setRequest(request);
