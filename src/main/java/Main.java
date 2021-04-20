@@ -14,6 +14,7 @@ public class Main {
         CASE.add(new SquadronRequest());
 
         HTTPRequest request = new HTTPRequest();
+        System.out.println("feature ветка");
         for (TestStep step : CASE){
             step.setRequest(request);
             step.setVehicleID("0e021cb1-cbda-4a47-b634-0194e0b8c2da");

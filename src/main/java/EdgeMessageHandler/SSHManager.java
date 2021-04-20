@@ -8,7 +8,6 @@ import com.jcraft.jsch.Session;
 import javax.json.*;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
-import java.io.StringReader;
 
 public class SSHManager {
     private final String publickeyfile = "./.ssh//na";
@@ -38,7 +37,6 @@ public class SSHManager {
             OutputStream responseStream = new ByteArrayOutputStream();
             channel.setOutputStream(responseStream);
             channel.connect();
-            Thread.sleep(1000);
             String responseString = new String(responseStream.toString());
             if (responseString.isEmpty()) {
                 System.out.println(ConsoleColors.ANSI_Colors.ANSI_YELLOW + "Response Is Empty!" + ConsoleColors.ANSI_Colors.ANSI_RESET);
